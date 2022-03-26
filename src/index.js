@@ -7,6 +7,7 @@ const port  = process.env.PORT || 3000
 
 app.use(express.json())
 
+app.options('', cors())
 app.post('', cors(), async (req, res) => {
     
     const params = {
