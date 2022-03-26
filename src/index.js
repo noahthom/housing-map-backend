@@ -1,12 +1,13 @@
 const express = require('express')
 const kijiji = require('kijiji-scraper')
+const cors = require('cors')
 const app = express()
 
 const port  = process.env.PORT || 3000
 
 app.use(express.json())
 
-app.post('', async (req, res) => {
+app.post('', cors(), async (req, res) => {
     
     const params = {
         locationId: req.body.locationId,
