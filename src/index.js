@@ -23,7 +23,10 @@ app.post('', cors(), async (req, res) => {
 
     try{
         const ads = await kijiji.search(params, options)
-        res.status(200).send(ads)
+        const adsFiltered = ads.filter((ad) => {
+            return ad.attributes.numberbedrooms === req.body.bedrooms && ad.attributes === req.body.bathrooms
+        })
+        res.status(200).send(adsFiltered)
     }catch(e){
         res.status(400).send(e)
     }
