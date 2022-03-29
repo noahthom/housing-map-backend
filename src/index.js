@@ -24,7 +24,7 @@ app.post('', cors(), async (req, res) => {
     try{
         const ads = await kijiji.search(params, options)
         const adsFiltered = ads.filter((ad) => {
-            return ad.attributes.numberbedrooms === req.body.bedrooms && ad.attributes === req.body.bathrooms
+            return ad.attributes.numberbedrooms === req.body.bedrooms && ad.attributes.numberbathrooms === req.body.bathrooms
         })
         res.status(200).send(adsFiltered)
     }catch(e){
